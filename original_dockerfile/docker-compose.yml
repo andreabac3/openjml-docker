@@ -1,0 +1,8 @@
+version: '2'
+services:
+  openjml:
+    container_name: openjml_container   
+    build: ./
+    volumes:
+       - ../my_java_code:/my_java_code 
+    command: tail -F anything
