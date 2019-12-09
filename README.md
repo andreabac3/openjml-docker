@@ -58,6 +58,10 @@ docker exec -it openjml_container java -jar /tools/openjml/openjml.jar my_java_c
 ```sh
 docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -esc my_java_code/file.java
 ```
+### Runtime assertion checking
+```sh
+docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -rac my_java_code/file.java
+```
 
 # Authors
 
