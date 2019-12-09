@@ -19,9 +19,9 @@ The first one is faster: it downloads the image directly from the dockerhub repo
 <br>
 
 ```sh
-$ git clone https://github.com/andreabac3/openjml-docker.git
-$ cd openjml-docker
-$ docker-compose up -d
+git clone https://github.com/andreabac3/openjml-docker.git
+cd openjml-docker
+docker-compose up -d
 
 ```
 ### second way
@@ -30,9 +30,9 @@ $ docker-compose up -d
 The second way allows you to use the original Dockerfile and build it.
 The original Dockerfile is provided by the original [OpenJML repo](https://github.com/OpenJML/tryopenjml/blob/master/tools/Dockerfile) <br>
 ```sh
-$ git clone https://github.com/andreabac3/openjml-docker.git
-$ cd openjml-docker/original_dockerfile/
-$ docker-compose up -d
+git clone https://github.com/andreabac3/openjml-docker.git
+cd openjml-docker/original_dockerfile/
+docker-compose up -d
 
 ```
 <br>
@@ -46,6 +46,15 @@ DockerFS: /my_java_code <br>
 
 ## Execution
 
+openJML has several modes which include simple type checking (default), static verification, dynamic verification.
+
+### Type checking only
+
+```sh
+docker exec -it openjml_container java -jar /tools/openjml/openjml.jar my_java_code/file.java
+```
+
+### Static checking (verification through a SAT solver) 
 ```sh
 docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -esc my_java_code/file.java
 ```
