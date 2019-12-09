@@ -11,7 +11,6 @@ For more information about it, see the [OpenJML website](https://www.openjml.org
 ## Installation
 
 This repo provides to you two installation modes.
-Note that you will need to start the docker daemon to use docker-compose (either from docker launcher GUI, or from the CLI: `$ dockerd`).
 
 ### first way
 The first one is faster: it downloads the image directly from the dockerhub repo (the image is already built).
@@ -55,10 +54,12 @@ docker exec -it openjml_container java -jar /tools/openjml/openjml.jar my_java_c
 ```
 
 ### Static checking (verification through a SAT solver) 
+Using -esc option
 ```sh
 docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -esc my_java_code/file.java
 ```
 ### Runtime assertion checking
+Using -rac option
 ```sh
 docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -rac my_java_code/file.java
 ```
