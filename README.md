@@ -1,5 +1,5 @@
 # OpenJML Docker
-This repo allows you to install easily OpenJML on your machine.
+This repo allows you to easily install OpenJML on your machine using a docker container.
 
 ## OpenJML
 
@@ -10,9 +10,11 @@ For more information about it, see the [OpenJML website](https://www.openjml.org
 
 ## Installation
 
-This repo provide to you two installation mode
+This repo provides to you two installation modes.
+Note that you will need to start the docker daemon to use docker-compose (either from docker launcher GUI, or from the CLI: `$ dockerd`).
+
 ### first way
-The first one is more fast than the second one, it consist to download the image directly from the dockerhub repo, this modality is more faster because the image is already built.
+The first one is faster: it downloads the image directly from the dockerhub repo (the image is already built).
 
 <br>
 
@@ -25,7 +27,7 @@ docker-compose up -d
 ### second way
 <br>
 
-The second way allow you to use the original Dockerfile and build it.
+The second way allows you to use the original Dockerfile and build it.
 The original Dockerfile is provided by the original [OpenJML repo](https://github.com/OpenJML/tryopenjml/blob/master/tools/Dockerfile) <br>
 ```sh
 git clone https://github.com/andreabac3/openjml-docker.git
@@ -44,8 +46,17 @@ DockerFS: /my_java_code <br>
 
 ## Execution
 
+openJML has several modes which include simple type checking (default), static verification, dynamic verification.
+
+### Type checking only
+
 ```sh
 docker exec -it openjml_container java -jar /tools/openjml/openjml.jar my_java_code/file.java
+```
+
+### Static checking (verification through a SAT solver) 
+```sh
+docker exec -it openjml_container java -jar /tools/openjml/openjml.jar -esc my_java_code/file.java
 ```
 
 # Authors
